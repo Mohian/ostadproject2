@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Your Posted Jobs</h1>
+<ul>
+    {% for job in jobs %}
+        <li>
+            <a href="{% url 'job_applications' job.id %}">{{ job.title }}</a>
+        </li>
+    {% empty %}
+        <li>You haven't posted any jobs yet.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

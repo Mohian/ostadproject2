@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ job.title }}</h1>
+<p><strong>Company:</strong> {{ job.company_name }}</p>
+<p><strong>Location:</strong> {{ job.location }}</p>
+<p><strong>Description:</strong> {{ job.description }}</p>
+{% if user.is_authenticated and user.role == 'applicant' %}
+    <a href="{% url 'application_create' job.id %}">Apply Now</a>
+{% endif %}
+{% endblock %}

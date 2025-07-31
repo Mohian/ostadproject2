@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h2>My Applications</h2>
+  <ul class="list-group">
+    {% for app in applications %}
+      <li class="list-group-item">
+        {{ app.job.title }} at {{ app.job.company_name }} - Applied on {{ app.applied_at|date:'Y-m-d' }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
